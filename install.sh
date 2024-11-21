@@ -45,7 +45,7 @@ if ! command -v docker-compose &>/dev/null; then
     exit 1
 fi
 
-docker-compose up -d
+docker compose up -d
 
 # Display the contents of the howto.txt file, if it exists
 if [[ -f ./howto.txt ]]; then

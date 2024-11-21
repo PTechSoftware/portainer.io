@@ -15,20 +15,6 @@ services:
     networks:
       - mynet
 
-  nginx:
-    image: nginx:alpine
-    container_name: nginx
-    restart: unless-stopped
-    tty: true
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx/conf.d/:/etc/nginx/conf.d/
-      - ./nginx/ssl/:/etc/nginx/ssl/
-    networks:
-      - mynet
-
   portainer:
     image: portainer/portainer-ce
     container_name: portainer

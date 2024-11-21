@@ -6,19 +6,10 @@ apt install apache2-utils -y
 set -e
 
 # Create directory structure for the registry
-mkdir -p registry/{nginx/conf.d,auth}
-
-# Check if configuration files exist before copying
-if [[ -f ./registry.conf ]] && [[ -f ./additional.conf ]]; then
-    cp ./registry.conf ./registry/nginx/conf.d/registry.conf
-    cp ./additional.conf ./registry/nginx/conf.d/additional.conf
-else
-    echo "Error: Required configuration files (registry.conf or additional.conf) are missing."
-    exit 1
-fi
+mkdir -p auth
 
 # Navigate to the auth directory
-cd ./registry/auth
+cd ./auth
 
 # Prompt user for a username and password
 echo "Insert a Username:"
@@ -37,10 +28,10 @@ fi
 htpasswd -Bc registry.passwd "$username"
 
 # Return to the root directory and start the Docker Compose setup
-cd ../..
+cd .. 
 
 echo "Creating container..."
-if ! command -v docker-compose &>/dev/null; then
+if ! command -v docker compose &>/dev/null; then
     echo "Error: Docker Compose not found. Please install Docker Compose."
     exit 1
 fi

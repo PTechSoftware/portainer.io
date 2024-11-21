@@ -1,4 +1,6 @@
 #!/bin/bash
+apt update
+apt install apache2-utils -y
 
 # Ensure the script stops on errors
 set -e

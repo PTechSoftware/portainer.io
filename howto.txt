@@ -1,0 +1,15 @@
+Do Login:
+
+docker login https://registry.[domain]/v2/
+
+Pull an Image:
+
+docker push registry.[domain]/[new-image-name]
+
+Add a Tag to an image:
+
+docker image tag [image] registry.[domain]/[new-image-name]
+
+
+Web UI
+http://localhost:9000
